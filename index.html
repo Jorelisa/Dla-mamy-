@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Wiersz dla Mamy ❤️</title>
 
 <style>
+
 body{
     margin:0;
     padding:30px;
     text-align:center;
-    background: linear-gradient(to bottom,#ffd6e7,#fff5f8);
-    font-family:"Calisto MT", serif;
+    background:linear-gradient(to bottom,#ffd6e7,#fff5f8);
+    font-family:"Calisto MT",serif;
 }
 
 h1{
@@ -19,25 +21,29 @@ h1{
     font-size:40px;
 }
 
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+    margin-top:30px;
+}
+
 .poem{
+    width:550px;
     font-size:20px;
-    max-width:900px;
-    margin:auto;
     line-height:1.9;
+
     background:white;
-    padding:30px;
+    padding:35px;
+
     border-radius:30px;
+
+    box-shadow:0 0 15px rgba(0,0,0,0.15);
 }
 
-.gallery{
-    margin-top:35px;
-    display:grid;
-    grid-template-columns: repeat(2,1fr);
-    gap:15px;
-}
-
-.gallery img{
-    width:100%;
+.side img{
+    width:180px;
     border-radius:20px;
 }
 
@@ -48,31 +54,74 @@ button{
     border:none;
     border-radius:50px;
     cursor:pointer;
+    background:#b03a6e;
+    color:white;
+    display:none;
 }
+
 </style>
 </head>
 
 <body>
 
+<h1>🩷🤎</h1>
 
-<audio id="muzyka" autoplay loop>
-   <source src="TUTAJ_LINK_DO_MP3">
-</audio>
+<div id="player" style="display:none;"></div>
+
+<button id="start">
+🎵 Włącz muzykę
+</button>
+
+<script src="https://www.youtube.com/iframe_api"></script>
 
 <script>
-window.onload=()=>{
-let audio=document.getElementById("muzyka");
 
-audio.play().catch(()=>{
-document.getElementById("start").style.display="inline-block";
-});
+const youtubeID="LeGcQbuQxag";
+
+let player;
+
+function onYouTubeIframeAPIReady(){
+
+player=new YT.Player('player',{
+
+height:'0',
+width:'0',
+
+videoId:youtubeID,
+
+playerVars:{
+autoplay:0,
+loop:1,
+playlist:youtubeID
 }
+
+});
+
+document.getElementById("start").style.display="inline-block";
+
+}
+
+document.getElementById("start").addEventListener("click",()=>{
+
+player.playVideo();
+
+document.getElementById("start").style.display="none";
+
+});
+
 </script>
+
+
+<div class="container">
+
+<div class="side">
+<img src="https://img.sanishtech.com/u/06f24c41b5ff908f7361f45dfa077bce.png">
+</div>
+
 
 <div class="poem">
 
-Dawno temu, gdzieś daleko, pewna góra uległa lawinie.<br><br>
-
+Dawno temu, gdzieś daleko, pewna góra uległa lawinie.<br>
 Zapadły się wielkie szczyty i powstały dwie jaskinie.<br><br>
 
 I upłynął długi czas, latami kamienie rosły<br>
@@ -93,16 +142,10 @@ Więc na koniec tej bajeczki niech nikt nie zapomina<br>
 
 </div>
 
-<button id="start"
-style="display:none"
-onclick="document.getElementById('muzyka').play()">
 
-<div class="gallery">
-
-<img src="zdjecie1.jpg">
-<img src="zdjecie2.jpg">
-<img src="zdjecie3.jpg">
-<img src="zdjecie4.jpg">
+<div class="side">
+<img src="https://img.sanishtech.com/u/efed52dd98cee65e66955c9230fbc48f.png">
+</div>
 
 </div>
 
