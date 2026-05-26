@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<style>
+body{
+    margin:0;
+    padding:30px;
+    text-align:center;
+    background: linear-gradient(to bottom,#ffd6e7,#fff5f8);
+    font-family:"Calisto MT", serif;
+}
+
+h1{
+    color:#b03a6e;
+    font-size:40px;
+}
+
+.poem{
+    font-size:20px;
+    max-width:900px;
+    margin:auto;
+    line-height:1.9;
+    background:white;
+    padding:30px;
+    border-radius:30px;
+}
+
+.gallery{
+    margin-top:35px;
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:15px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:20px;
+}
+
+button{
+    margin-top:20px;
+    font-size:18px;
+    padding:12px 24px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+
+<audio id="muzyka" autoplay loop>
+   <source src="TUTAJ_LINK_DO_MP3">
+</audio>
+
+<script>
+window.onload=()=>{
+let audio=document.getElementById("muzyka");
+
+audio.play().catch(()=>{
+document.getElementById("start").style.display="inline-block";
+});
+}
+</script>
+
+<div class="poem">
+
+Dawno temu, gdzieś daleko, pewna góra uległa lawinie.<br><br>
+
+Zapadły się wielkie szczyty i powstały dwie jaskinie.<br><br>
+
+I upłynął długi czas, latami kamienie rosły<br>
+
+A jedyny dźwięk w jaskini fale echa do nich niosły.<br><br>
+
+Teraz widzisz je w pudełku, leżą razem, blisko siebie.<br>
+
+Jeśli nadal nie rozumiesz, przedstawiają mnie i ciebie.<br><br>
+
+Bo choć ludzie umierają, i na niebie gwiazdy gasną<br>
+
+to kamienie w dobrym domu nigdy na zawsze nie zasną.<br><br>
+
+Więc na koniec tej bajeczki niech nikt nie zapomina<br>
+
+że najlepszym z wszystkich domów jest właśnie nasza rodzina.
+
+</div>
+
+<button id="start"
+style="display:none"
+onclick="document.getElementById('muzyka').play()">
+
+<div class="gallery">
+
+<img src="zdjecie1.jpg">
+<img src="zdjecie2.jpg">
+<img src="zdjecie3.jpg">
+<img src="zdjecie4.jpg">
+
+</div>
+
+</body>
+</html>
